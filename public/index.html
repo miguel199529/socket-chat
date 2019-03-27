@@ -2,73 +2,89 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="https://cdn.worldvectorlogo.com/logos/udemy-1.svg" type="image/x-icon">
-    <link rel="stylesheet" href="css/index.css">
-    <title>Chat</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
+    <title>Sala de Chat</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- page css -->
+    <link href="css/pages/login-register-lock.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- You can change the theme colors from here -->
+    <link href="css/colors/default-dark.css" id="theme" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
 </head>
 
-
-<body>
-    <hgroup>
-        <h1>Chat udemy </h1>
-        <h3>By Miguel</h3>
-    </hgroup>
-    <form action="chat.html">
-        <div class="group">
-            <input type="text" name="nombre" required><span class="highlight"></span><span class="bar"></span>
-            <label>Nombre</label>
+<body class="card-no-border">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader__figure"></div>
+            <p class="loader__label">Cargando Chat...</p>
         </div>
-        <div class="group">
-            <input type="text" name="sala" required><span class="highlight"></span><span class="bar"></span>
-            <label>Sala</label>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <section id="wrapper">
+        <div class="login-register" style="background-image:url(../assets/images/background/login-register.jpg);">
+            <div class="login-box card">
+                <div class="card-body">
+                    <form class="form-horizontal form-material" id="loginform" action="chat.html">
+                        <h3 class="box-title m-b-20">Ingresar al Chat</h3>
+                        <div class="form-group ">
+                            <div class="col-xs-12">
+                                <input class="form-control" type="text" required="" placeholder="Nombre de usuario" name="nombre"> </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <input class="form-control" type="text" required="" placeholder="Sala de chat" name="sala"> </div>
+                        </div>
+
+                        <div class="form-group text-center">
+                            <div class="col-xs-12 p-b-20">
+                                <button class="btn btn-block btn-lg btn-info btn-rounded" type="submit">Ingresar al chat</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
         </div>
-        <button type="submit" class="button buttonBlue">Entrar
-          <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
-        </button>
-    </form>
-    <footer>
-        <a href="http://udemy.com//" target="_blank"><img src="https://about.udemy.com/wp-content/uploads/2017/10/NewUlogo-large-1.png"></a>
-        <p>You Gotta Love <a href="http://www.polymer-project.org/" target="_blank">Google</a></p>
-    </footer>
+    </section>
 
-    <script>
-        $(window, document, undefined).ready(function() {
-
-            $('input').blur(function() {
-                var $this = $(this);
-                if ($this.val())
-                    $this.addClass('used');
-                else
-                    $this.removeClass('used');
-            });
-
-            var $ripples = $('.ripples');
-
-            $ripples.on('click.Ripples', function(e) {
-
-                var $this = $(this);
-                var $offset = $this.parent().offset();
-                var $circle = $this.find('.ripplesCircle');
-
-                var x = e.pageX - $offset.left;
-                var y = e.pageY - $offset.top;
-
-                $circle.css({
-                    top: y + 'px',
-                    left: x + 'px'
-                });
-
-                $this.addClass('is-active');
-
-            });
-
-            $ripples.on('animationend webkitAnimationEnd mozAnimationEnd oanimationend MSAnimationEnd', function(e) {
-                $(this).removeClass('is-active');
-            });
-
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="../assets/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="../assets/plugins/bootstrap/js/popper.min.js"></script>
+    <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!--Custom JavaScript -->
+    <script type="text/javascript">
+        $(function() {
+            $(".preloader").fadeOut();
+        });
+        $(function() {
+            $('[data-toggle="tooltip"]').tooltip()
         });
     </script>
 
